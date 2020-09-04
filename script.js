@@ -23,6 +23,10 @@ function turnPageToRight (jpgName) {
     return;
   }
   //バックグラウンドイメージを変更するプログラム
+  /*
+    言い訳なんですけども、下のプログラムは、画像ファイルの名前を「page（数字）.jpg」にすれば9まで正常に動作するんです。
+    言い訳しながら1桁までしか対応できないことに気づきました。詰めが甘かったですね。
+  */
   let pagenum = Number(jpgName[15]);
   rightPage.style.backgroundImage = jpgName.replace(pagenum, pagenum - 2);
   leftPage.style.backgroundImage = jpgName.replace(pagenum, pagenum - 1);
@@ -43,6 +47,10 @@ function turnPageToLeft (jpgName) {
       return;
     default:
       //バックグラウンドイメージを変更するプログラム
+      /*
+        言い訳なんですけども（2回目）、下のプログラムは、画像ファイルの名前を「page（数字）.jpg」にすれば9まで正常に動作するんです。
+        言い訳しながら1桁までしか対応できないことに気づきました。詰めが甘かったですね。
+      */
       let pagenum = Number(jpgName[15]);
       rightPage.style.backgroundImage = jpgName.replace(pagenum, pagenum + 1);
       leftPage.style.backgroundImage = jpgName.replace(pagenum, pagenum + 2);
