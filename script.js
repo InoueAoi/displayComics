@@ -58,6 +58,7 @@ touchLeft.onclick = () => {
   turnPageToLeft(leftPage.style.backgroundImage);
 };
 window.onload = () => {
+  /*
   //cssの調整するよ
   let width = window.innerHeight * 0.71;
   rightPage.style.width = '' + width + 'px';
@@ -65,6 +66,7 @@ window.onload = () => {
   touchLeft.style.width = '' + width + 'px';
   touchRight.style.width = '' + width + 'px';
   console.log('ちゃんと定義しました！');
+  */
   //ファーストアピールをフェードアウトさせる
   let opacity = 100;
   let feadOut = setInterval(() => {

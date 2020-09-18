@@ -44,13 +44,19 @@ p {
 .righter {
   display: inline-block;
   height: 100%;
-  margin: 0 0 0 auto;
+  width: 50%;
+  margin: 0;
+  background-position: left center;
+  background-repeat: no-repeat;
   background-size: contain;
 }
 .lefter {
   display: inline-block;
   height: 100%;
-  margin: 0 0 auto 0;
+  width: 50%;
+  margin: 0;
+  background-position: right center;
+  background-repeat: no-repeat;
   background-size: contain;
 }
 .invisible {
