@@ -1,50 +1,53 @@
 'use strict';
 const
-firstAppeal = document.getElementById('first-appeal'),
-touchRight = document.getElementById('touch-right'),
-touchLeft = document.getElementById('touch-left'),
-rightPage = document.getElementById('right-page'),
-leftPage = document.getElementById('left-page');
+  firstAppeal = document.getElementById('first-appeal'),
+  touchRight = document.getElementById('touch-right'),
+  touchLeft = document.getElementById('touch-left'),
+  rightPage = document.getElementById('right-page'),
+  leftPage = document.getElementById('left-page');
 
-function turnPageToRight (jpgName) {
-  //一番最初だったら無効にするよ
-  if(jpgName === 'url("./img/white.jpg")') {
-    return;
+function turnPageToRight(jpgName) {
+  switch (jpgName) {
+    //一番最初だったら無効にするよ
+    case 'url("./img/white.jpg")':
+      break;
+
+    //最初のページだと数字操作ができないので直接指定
+    case 'url("./img/page1.jpg")':
+      rightPage.style.backgroundImage = 'url("./img/white.jpg")';
+      leftPage.style.backgroundImage = 'url("./img/jacket.jpg")';
+      return;
+
+    case 'url("./img/end.jpg")':
+      rightPage.style.backgroundImage = 'url("./img/page3.jpg")';
+      leftPage.style.backgroundImage = 'url("./img/page4.jpg")';
+      return;
+
+    //バックグラウンドイメージを変更するプログラム
+    /*
+      言い訳なんですけども、下のプログラムは、画像ファイルの名前を「page（数字）.jpg」にすれば9まで正常に動作するんです。
+      言い訳しながら1桁までしか対応できないことに気づきました。詰めが甘かったですね。
+    */
+    default:
+      let pagenum = Number(jpgName[15]);
+      rightPage.style.backgroundImage = jpgName.replace(pagenum, pagenum - 2);
+      leftPage.style.backgroundImage = jpgName.replace(pagenum, pagenum - 1);
   }
-  //最初のページだと数字操作ができないので直接指定
-  if(jpgName === 'url("./img/page1.jpg")') {
-    rightPage.style.backgroundImage = 'url("./img/white.jpg")';
-    leftPage.style.backgroundImage = 'url("./img/jacket.jpg")';
-    return;
-  }
-  if(jpgName === 'url("./img/end.jpg")') {
-    rightPage.style.backgroundImage = 'url("./img/page3.jpg")';
-    leftPage.style.backgroundImage = 'url("./img/page4.jpg")';
-    return;
-  }
-  //バックグラウンドイメージを変更するプログラム
-  /*
-    言い訳なんですけども、下のプログラムは、画像ファイルの名前を「page（数字）.jpg」にすれば9まで正常に動作するんです。
-    言い訳しながら1桁までしか対応できないことに気づきました。詰めが甘かったですね。
-  */
-  let pagenum = Number(jpgName[15]);
-  rightPage.style.backgroundImage = jpgName.replace(pagenum, pagenum - 2);
-  leftPage.style.backgroundImage = jpgName.replace(pagenum, pagenum - 1);
 }
-function turnPageToLeft (jpgName) {
+function turnPageToLeft(jpgName) {
   switch (jpgName) {
     //一番最初だったら無効にするよ
     case 'url("./img/thanks.jpg")':
-      return;
+      break;
     //ヅャケットだったら直接指定するよ
     case 'url("./img/jacket.jpg")':
       rightPage.style.backgroundImage = 'url("./img/page1.jpg")';
       leftPage.style.backgroundImage = 'url("./img/page2.jpg")';
-      return;
+      break;
     case 'url("./img/page4.jpg")':
       rightPage.style.backgroundImage = 'url("./img/end.jpg")';
       leftPage.style.backgroundImage = 'url("./img/thanks.jpg")';
-      return;
+      break;
     default:
       //バックグラウンドイメージを変更するプログラム
       /*
